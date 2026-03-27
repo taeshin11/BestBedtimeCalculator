@@ -7,7 +7,7 @@ const CYCLES = [6, 5, 4, 3];
 const RECOMMENDED_CYCLES = [6, 5];
 
 // Google Sheets Webhook — paste your URL here
-const GOOGLE_SHEETS_WEBHOOK_URL = "";
+const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzi-RciQJMdhXwyVva-otSFt7NLI1KWVmcy1jmV5R3YpQY8Kc_1jVk3o9cXj4bamId7/exec";
 
 // --- DOM Elements ---
 const hoursEl = document.getElementById("hours");
