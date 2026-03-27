@@ -625,6 +625,7 @@ body {
 /* --- Ad Slots --- */
 .ad-slot {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--color-surface-alt);
@@ -640,6 +641,22 @@ body {
   letter-spacing: 1px;
   color: var(--color-text-muted);
   opacity: 0.5;
+}
+
+/* Responsive ad switching: mobile by default, desktop at 768px+ */
+.ad-slot__desktop {
+  display: none;
+}
+.ad-slot__mobile {
+  display: block;
+}
+@media (min-width: 768px) {
+  .ad-slot__desktop {
+    display: block;
+  }
+  .ad-slot__mobile {
+    display: none;
+  }
 }
 
 .ad-slot--top {
