@@ -1,0 +1,13 @@
+{
+  "name": "best-bedtime-calculator",
+  "version": "1.0.0",
+  "description": "Sleep Cycle Optimizer - Calculate the best bedtime based on REM sleep cycles",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

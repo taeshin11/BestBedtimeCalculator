@@ -1,0 +1,61 @@
+{
+  "project": "Sleep Cycle Optimizer (Best Bedtime Calculator)",
+  "milestones": [
+    {
+      "id": "M1",
+      "name": "Initializer Phase",
+      "status": "in-progress",
+      "tasks": [
+        { "id": "M1-T1", "task": "Create feature_list.json", "status": "done" },
+        { "id": "M1-T2", "task": "Create claude-progress.txt", "status": "done" },
+        { "id": "M1-T3", "task": "Create init.sh", "status": "done" },
+        { "id": "M1-T4", "task": "Initialize project structure (package.json, .gitignore, index.html skeleton)", "status": "pending" }
+      ]
+    },
+    {
+      "id": "M2",
+      "name": "Core Logic & HTML/CSS Skeleton",
+      "status": "pending",
+      "tasks": [
+        { "id": "M2-T1", "task": "Build time picker UI (Hours, Minutes, AM/PM)", "status": "pending" },
+        { "id": "M2-T2", "task": "Implement sleep cycle calculation logic (90-min intervals, 15-min latency)", "status": "pending" },
+        { "id": "M2-T3", "task": "Build output dashboard showing 4 bedtime options", "status": "pending" },
+        { "id": "M2-T4", "task": "Highlight 5-cycle and 6-cycle as recommended", "status": "pending" }
+      ]
+    },
+    {
+      "id": "M3",
+      "name": "Responsive UI, Timeline Dashboard & Ad Placeholders",
+      "status": "pending",
+      "tasks": [
+        { "id": "M3-T1", "task": "Mobile-first responsive CSS (Flexbox/Grid)", "status": "pending" },
+        { "id": "M3-T2", "task": "Timeline dashboard visualization for results", "status": "pending" },
+        { "id": "M3-T3", "task": "Ad slot placeholders: top banner, in-content, sticky footer", "status": "pending" },
+        { "id": "M3-T4", "task": "Google AdSense script placeholder", "status": "pending" },
+        { "id": "M3-T5", "task": "Alternative ad network placeholders (Adsterra, PropellerAds, Monetag, Media.net)", "status": "pending" }
+      ]
+    },
+    {
+      "id": "M4",
+      "name": "Data Collection & SEO Optimization",
+      "status": "pending",
+      "tasks": [
+        { "id": "M4-T1", "task": "Google Sheets webhook integration (silent POST on calculate)", "status": "pending" },
+        { "id": "M4-T2", "task": "Meta tags optimization (title, description, keywords)", "status": "pending" },
+        { "id": "M4-T3", "task": "Open Graph and Twitter Card tags", "status": "pending" },
+        { "id": "M4-T4", "task": "JSON-LD structured data (WebApplication schema)", "status": "pending" },
+        { "id": "M4-T5", "task": "Semantic HTML5 audit and fixes", "status": "pending" }
+      ]
+    },
+    {
+      "id": "M5",
+      "name": "QA Review & Deployment Prep",
+      "status": "pending",
+      "tasks": [
+        { "id": "M5-T1", "task": "Reviewer QA: bug fixes, edge cases, responsive glitches", "status": "pending" },
+        { "id": "M5-T2", "task": "Create DEPLOY.md (Vercel, Netlify, Cloudflare Pages instructions)", "status": "pending" },
+        { "id": "M5-T3", "task": "Final cross-browser and mobile testing", "status": "pending" }
+      ]
+    }
+  ]
+}

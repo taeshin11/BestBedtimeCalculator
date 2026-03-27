@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Bedtime Calculator | Sleep Cycle Optimizer</title>
+  <meta name="description" content="Find the perfect bedtime based on 90-minute REM sleep cycles. Wake up refreshed with our free sleep cycle calculator.">
+  <meta name="keywords" content="sleep cycle calculator, best bedtime, REM sleep calculator, bedtime calculator, sleep optimizer">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sleep Cycle Optimizer">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Best Bedtime Calculator | Sleep Cycle Optimizer">
+  <meta property="og:description" content="Calculate your ideal bedtime based on 90-minute REM sleep cycles. Wake up feeling refreshed every morning.">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:site_name" content="Sleep Cycle Optimizer">
+  <meta property="og:image" content="https://example.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best Bedtime Calculator | Sleep Cycle Optimizer">
+  <meta name="twitter:description" content="Find the perfect bedtime using sleep science. Free REM sleep cycle calculator.">
+  <meta name="twitter:image" content="https://example.com/og-image.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Sleep Cycle Optimizer",
+    "alternateName": "Best Bedtime Calculator",
+    "description": "A free web application that calculates optimal bedtimes based on 90-minute REM sleep cycles to help you wake up refreshed.",
+    "url": "https://example.com/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires JavaScript"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- ============================================================
+       AD NETWORK SCRIPTS
+       Uncomment and replace IDs when accounts are approved.
+       ============================================================ -->
+
+  <!-- Google AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <!-- Adsterra (fast approval alternative) -->
+  <!-- <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('YOUR_DOMAIN','YOUR_ZONE_ID',document.createElement('script'));</script> -->
+
+  <!-- PropellerAds -->
+  <!-- <script src="https://js.propellerads.com/?id=YOUR_PROPELLER_ID"></script> -->
+
+  <!-- Monetag -->
+  <!-- <script>(function(s,u,z,p){s.src=u;s.setAttribute('data-zone',z);p.appendChild(s);})(document.createElement('script'),'https://iclickcdn.com/tag.min.js','YOUR_ZONE_ID',document.body||document.documentElement);</script> -->
+
+  <!-- Media.net -->
+  <!-- <script id="mnet-adcode" data-cid="YOUR_MEDIA_NET_CID" src="//contextual.media.net/dmedianet.js?cid=YOUR_MEDIA_NET_CID"></script> -->
+</head>
+<body>
+  <!-- Top Ad Banner Placeholder -->
+  <div class="ad-slot ad-slot--top" id="ad-top">
+    <span class="ad-slot__label">Advertisement</span>
+  </div>
+
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Sleep Cycle Optimizer</h1>
+      <p class="app__subtitle">Find the perfect bedtime to wake up refreshed</p>
+    </header>
+
+    <section class="calculator" aria-label="Bedtime Calculator">
+      <h2 class="calculator__heading">What time do you need to wake up?</h2>
+      <div class="calculator__picker">
+        <div class="picker">
+          <div class="picker__field">
+            <label for="hours" class="picker__label">Hour</label>
+            <select id="hours" class="picker__select">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6" selected>6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <span class="picker__colon">:</span>
+          <div class="picker__field">
+            <label for="minutes" class="picker__label">Min</label>
+            <select id="minutes" class="picker__select">
+              <option value="0">00</option>
+              <option value="5">05</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30" selected>30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+              <option value="55">55</option>
+            </select>
+          </div>
+          <div class="picker__field">
+            <label for="ampm" class="picker__label">AM/PM</label>
+            <select id="ampm" class="picker__select">
+              <option value="AM" selected>AM</option>
+              <option value="PM">PM</option>
+            </select>
+          </div>
+        </div>
+        <button id="calculate-btn" class="btn btn--primary">Calculate Bedtime</button>
+      </div>
+    </section>
+
+    <!-- In-Content Ad Placeholder -->
+    <div class="ad-slot ad-slot--content" id="ad-content">
+      <span class="ad-slot__label">Advertisement</span>
+    </div>
+
+    <section class="results" id="results" aria-label="Recommended Bedtimes" hidden>
+      <h2 class="results__heading">Your Optimal Bedtimes</h2>
+      <p class="results__info">To wake up at <strong id="wake-time-display"></strong>, go to sleep at one of these times:</p>
+      <div class="timeline" id="timeline"></div>
+      <p class="results__note">* Includes ~15 minutes to fall asleep. Recommended options give you 5-6 full sleep cycles for optimal rest.</p>
+    </section>
+
+    <section class="info" aria-label="About Sleep Cycles">
+      <h2 class="info__heading">How Sleep Cycles Work</h2>
+      <p>Each sleep cycle lasts approximately <strong>90 minutes</strong> and includes stages of light sleep, deep sleep, and REM (Rapid Eye Movement) sleep. Waking up between cycles&mdash;rather than in the middle of one&mdash;helps you feel more alert and refreshed.</p>
+      <p>Most adults need <strong>5 to 6 complete cycles</strong> (7.5&ndash;9 hours) per night. This calculator factors in an average of <strong>15 minutes</strong> of sleep latency (the time it takes to fall asleep) to give you the most accurate bedtime recommendations.</p>
+    </section>
+  </main>
+
+  <!-- Sticky Footer Ad Placeholder -->
+  <div class="ad-slot ad-slot--footer" id="ad-footer">
+    <span class="ad-slot__label">Advertisement</span>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Sleep Cycle Optimizer. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
