@@ -82,6 +82,9 @@ themeToggle.addEventListener("click", () => {
     document.documentElement.setAttribute("data-theme", next);
   }
   localStorage.setItem("theme", next);
+  // Update browser chrome color
+  document.querySelector('meta[name="theme-color"]').content =
+    next === "light" ? "#f5f3ff" : "#0f0e17";
 });
 
 // --- Cookie Consent ---

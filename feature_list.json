@@ -75,14 +75,14 @@
     {
       "id": "M7",
       "name": "Polish & Competitive Edge",
-      "status": "in-progress",
+      "status": "done",
       "tasks": [
-        { "id": "M7-T1", "task": "Visual sleep quality indicator (color-coded bars per cycle option)", "status": "pending" },
-        { "id": "M7-T2", "task": "Smooth scroll-based reveal animations", "status": "pending" },
-        { "id": "M7-T3", "task": "Dark/light theme toggle with localStorage", "status": "pending" },
-        { "id": "M7-T4", "task": "Sitemap.xml and robots.txt for SEO crawlers", "status": "pending" },
-        { "id": "M7-T5", "task": "Cookie consent banner placeholder", "status": "pending" },
-        { "id": "M7-T6", "task": "Analytics placeholder (Google Analytics / Plausible)", "status": "pending" }
+        { "id": "M7-T1", "task": "Visual sleep quality indicator (color-coded bars per cycle option)", "status": "done" },
+        { "id": "M7-T2", "task": "Smooth scroll-based reveal animations", "status": "done" },
+        { "id": "M7-T3", "task": "Dark/light theme toggle with localStorage", "status": "done" },
+        { "id": "M7-T4", "task": "Sitemap.xml and robots.txt for SEO crawlers", "status": "done" },
+        { "id": "M7-T5", "task": "Cookie consent banner placeholder", "status": "done" },
+        { "id": "M7-T6", "task": "Analytics placeholder (Google Analytics / Plausible)", "status": "done" }
       ]
     }
   ]
