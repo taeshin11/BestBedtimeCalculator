@@ -27,6 +27,12 @@ const latencyValue = document.getElementById("latency-value");
 const calcHeading = document.getElementById("calc-heading");
 const pickerArea = document.getElementById("picker-area");
 
+const themeToggle = document.getElementById("theme-toggle");
+const sleepBarEl = document.getElementById("sleep-bar");
+const cookieBanner = document.getElementById("cookie-banner");
+const cookieAccept = document.getElementById("cookie-accept");
+const cookieDecline = document.getElementById("cookie-decline");
+
 // --- State ---
 let currentMode = "bedtime"; // "bedtime" or "sleepnow"
 let sleepLatency = parseInt(localStorage.getItem("sleepLatency") || "15", 10);
@@ -49,11 +55,45 @@ function init() {
     } catch {}
   }
 
+  // Restore theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }
+
+  // Cookie consent
+  if (!localStorage.getItem("cookieConsent")) {
+    cookieBanner.hidden = false;
+  }
+
   // Register service worker
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js").catch(() => {});
   }
 }
+
+// --- Theme Toggle ---
+themeToggle.addEventListener("click", () => {
+  const current = document.documentElement.getAttribute("data-theme");
+  const next = current === "light" ? "dark" : "light";
+  if (next === "dark") {
+    document.documentElement.removeAttribute("data-theme");
+  } else {
+    document.documentElement.setAttribute("data-theme", next);
+  }
+  localStorage.setItem("theme", next);
+});
+
+// --- Cookie Consent ---
+cookieAccept.addEventListener("click", () => {
+  localStorage.setItem("cookieConsent", "accepted");
+  cookieBanner.hidden = true;
+});
+
+cookieDecline.addEventListener("click", () => {
+  localStorage.setItem("cookieConsent", "declined");
+  cookieBanner.hidden = true;
+});
 
 // --- Mode Tabs ---
 document.querySelectorAll(".mode-tab").forEach((tab) => {
@@ -182,8 +222,33 @@ function renderResults(results, headerText, infoText) {
     timelineEl.appendChild(card);
   });
 
+  // Render sleep quality bar
+  renderSleepBar(results);
+
   resultsSection.hidden = false;
   resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// --- Sleep Quality Bar ---
+function renderSleepBar(results) {
+  sleepBarEl.innerHTML = "";
+  const qualityMap = {
+    3: { label: "Poor", cls: "poor" },
+    4: { label: "Fair", cls: "fair" },
+    5: { label: "Good", cls: "good" },
+    6: { label: "Great", cls: "great" },
+  };
+
+  results.forEach((bt) => {
+    const q = qualityMap[bt.cycles] || { label: "?", cls: "poor" };
+    const seg = document.createElement("div");
+    seg.className = "sleep-bar__segment";
+    seg.innerHTML = `
+      <div class="sleep-bar__fill sleep-bar__fill--${q.cls}"></div>
+      <span class="sleep-bar__label">${bt.cycles} cyc &middot; ${q.label}</span>
+    `;
+    sleepBarEl.appendChild(seg);
+  });
 }
 
 // --- Silent Data Collection ---
