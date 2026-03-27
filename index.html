@@ -8,7 +8,20 @@
   <meta name="keywords" content="sleep cycle calculator, best bedtime, REM sleep calculator, bedtime calculator, sleep optimizer">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Sleep Cycle Optimizer">
+  <meta name="theme-color" content="#0f0e17">
   <link rel="canonical" href="https://example.com/">
+
+  <!-- Favicon (inline SVG moon) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -24,7 +37,7 @@
   <meta name="twitter:description" content="Find the perfect bedtime using sleep science. Free REM sleep cycle calculator.">
   <meta name="twitter:image" content="https://example.com/og-image.png">
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,6 +54,48 @@
       "priceCurrency": "USD"
     },
     "browserRequirements": "Requires JavaScript"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many hours of sleep do I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most adults need 7 to 9 hours of sleep per night, which is 5 to 6 complete 90-minute sleep cycles. Individual needs vary, but consistently getting fewer than 6 hours is associated with health risks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a sleep cycle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A sleep cycle is a roughly 90-minute period that includes stages of light sleep (NREM 1-2), deep sleep (NREM 3), and REM sleep. You typically go through 4-6 cycles per night. Waking up between cycles, rather than in the middle of one, helps you feel more refreshed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do I feel tired after 8 hours of sleep?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Feeling tired after 8 hours often means you woke up during a deep sleep phase in the middle of a cycle. Using a sleep cycle calculator to align your wake time with the end of a cycle can help you wake up feeling more alert, even with slightly less total sleep."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is sleep latency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sleep latency is the time it takes to fall asleep after lying down. The average is about 15 minutes. This calculator accounts for sleep latency so the bedtimes you see include that buffer."
+        }
+      }
+    ]
   }
   </script>
 
@@ -74,13 +129,25 @@
 
   <main class="app">
     <header class="app__header">
-      <h1 class="app__title">Sleep Cycle Optimizer</h1>
+      <h1 class="app__title">
+        <svg class="app__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" opacity="0.2"/>
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        Sleep Cycle Optimizer
+      </h1>
       <p class="app__subtitle">Find the perfect bedtime to wake up refreshed</p>
     </header>
 
+    <!-- Mode Tabs -->
+    <div class="mode-tabs" role="tablist" aria-label="Calculator mode">
+      <button class="mode-tab mode-tab--active" role="tab" aria-selected="true" id="tab-bedtime" data-mode="bedtime">I need to wake up at...</button>
+      <button class="mode-tab" role="tab" aria-selected="false" id="tab-sleepnow" data-mode="sleepnow">I want to sleep now</button>
+    </div>
+
     <section class="calculator" aria-label="Bedtime Calculator">
-      <h2 class="calculator__heading">What time do you need to wake up?</h2>
-      <div class="calculator__picker">
+      <h2 class="calculator__heading" id="calc-heading">What time do you need to wake up?</h2>
+      <div class="calculator__picker" id="picker-area">
         <div class="picker">
           <div class="picker__field">
             <label for="hours" class="picker__label">Hour</label>
@@ -127,6 +194,17 @@
         </div>
         <button id="calculate-btn" class="btn btn--primary">Calculate Bedtime</button>
       </div>
+
+      <!-- Settings toggle -->
+      <details class="settings">
+        <summary class="settings__toggle">Settings</summary>
+        <div class="settings__body">
+          <label class="settings__label" for="latency-slider">
+            Time to fall asleep: <strong id="latency-value">15</strong> min
+          </label>
+          <input type="range" id="latency-slider" class="settings__range" min="5" max="30" step="5" value="15">
+        </div>
+      </details>
     </section>
 
     <!-- In-Content Ad Placeholder -->
@@ -134,17 +212,49 @@
       <span class="ad-slot__label">Advertisement</span>
     </div>
 
-    <section class="results" id="results" aria-label="Recommended Bedtimes" hidden>
-      <h2 class="results__heading">Your Optimal Bedtimes</h2>
-      <p class="results__info">To wake up at <strong id="wake-time-display"></strong>, go to sleep at one of these times:</p>
-      <div class="timeline" id="timeline"></div>
-      <p class="results__note">* Includes ~15 minutes to fall asleep. Recommended options give you 5-6 full sleep cycles for optimal rest.</p>
+    <section class="results" id="results" aria-label="Recommended Bedtimes" aria-live="polite" hidden>
+      <h2 class="results__heading" id="results-heading">Your Optimal Bedtimes</h2>
+      <p class="results__info" id="results-info">To wake up at <strong id="wake-time-display"></strong>, go to sleep at one of these times:</p>
+      <div class="timeline" id="timeline" role="list"></div>
+      <p class="results__note" id="results-note">* Includes ~15 minutes to fall asleep. Recommended options give you 5-6 full sleep cycles for optimal rest.</p>
+      <div class="results__actions">
+        <button id="share-btn" class="btn btn--secondary" aria-label="Share results">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Share Results
+        </button>
+        <button id="recalc-btn" class="btn btn--ghost">Calculate Again</button>
+      </div>
     </section>
 
     <section class="info" aria-label="About Sleep Cycles">
       <h2 class="info__heading">How Sleep Cycles Work</h2>
       <p>Each sleep cycle lasts approximately <strong>90 minutes</strong> and includes stages of light sleep, deep sleep, and REM (Rapid Eye Movement) sleep. Waking up between cycles&mdash;rather than in the middle of one&mdash;helps you feel more alert and refreshed.</p>
       <p>Most adults need <strong>5 to 6 complete cycles</strong> (7.5&ndash;9 hours) per night. This calculator factors in an average of <strong>15 minutes</strong> of sleep latency (the time it takes to fall asleep) to give you the most accurate bedtime recommendations.</p>
+    </section>
+
+    <!-- FAQ Section (targets Google "People Also Ask") -->
+    <section class="faq" aria-label="Frequently Asked Questions">
+      <h2 class="faq__heading">Frequently Asked Questions</h2>
+
+      <details class="faq__item">
+        <summary class="faq__question">How many hours of sleep do I need?</summary>
+        <p class="faq__answer">Most adults need 7 to 9 hours of sleep per night, which is 5 to 6 complete 90-minute sleep cycles. Individual needs vary, but consistently getting fewer than 6 hours is associated with health risks.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">What is a sleep cycle?</summary>
+        <p class="faq__answer">A sleep cycle is a roughly 90-minute period that includes stages of light sleep (NREM 1-2), deep sleep (NREM 3), and REM sleep. You typically go through 4-6 cycles per night. Waking up between cycles helps you feel more refreshed.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">Why do I feel tired after 8 hours of sleep?</summary>
+        <p class="faq__answer">Feeling tired after 8 hours often means you woke up during a deep sleep phase in the middle of a cycle. Using a sleep cycle calculator to align your wake time with the end of a cycle can help you wake up feeling more alert.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">What is sleep latency?</summary>
+        <p class="faq__answer">Sleep latency is the time it takes to fall asleep after lying down. The average is about 15 minutes. This calculator accounts for sleep latency so the bedtimes you see include that buffer. You can adjust this in the settings.</p>
+      </details>
     </section>
   </main>
 
@@ -156,6 +266,13 @@
   <footer class="site-footer">
     <p>&copy; 2026 Sleep Cycle Optimizer. All rights reserved.</p>
   </footer>
+
+  <noscript>
+    <div style="text-align:center;padding:2rem;color:#fff;background:#1a1932;">
+      <h2>JavaScript Required</h2>
+      <p>This sleep cycle calculator requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
+    </div>
+  </noscript>
 
   <script type="module" src="/script.js"></script>
 </body>
