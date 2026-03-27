@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx vercel:*)",
-      "Bash(npm list:*)"
+      "Bash(npm list:*)",
+      "Bash(npx vite:*)"
     ]
   }
 }

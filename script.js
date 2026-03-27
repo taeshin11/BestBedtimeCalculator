@@ -334,5 +334,38 @@ calcBtn.addEventListener("click", () => {
   }
 });
 
+// --- Visitor Counter (localStorage-based, zero cost) ---
+function updateVisitorCounter() {
+  const today = new Date().toISOString().split("T")[0];
+  const totalKey = "visitors_total";
+  const todayKey = "visitors_today";
+  const dayKey = "visitors_day";
+
+  let total = parseInt(localStorage.getItem(totalKey) || "0", 10);
+  let todayCount = parseInt(localStorage.getItem(todayKey) || "0", 10);
+  const lastDay = localStorage.getItem(dayKey);
+
+  // New day? Reset today counter
+  if (lastDay !== today) {
+    todayCount = 0;
+    localStorage.setItem(dayKey, today);
+  }
+
+  // Only count once per session
+  if (!sessionStorage.getItem("counted")) {
+    total++;
+    todayCount++;
+    localStorage.setItem(totalKey, total);
+    localStorage.setItem(todayKey, todayCount);
+    sessionStorage.setItem("counted", "1");
+  }
+
+  const todayEl = document.getElementById("visitors-today");
+  const totalEl = document.getElementById("visitors-total");
+  if (todayEl) todayEl.textContent = todayCount.toLocaleString();
+  if (totalEl) totalEl.textContent = total.toLocaleString();
+}
+
 // --- Initialize ---
 init();
+updateVisitorCounter();
