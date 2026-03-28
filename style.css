@@ -678,6 +678,25 @@ body {
   padding-bottom: 70px;
 }
 
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--color-primary-light);
+}
+
 .visitor-counter {
   display: flex;
   justify-content: center;
