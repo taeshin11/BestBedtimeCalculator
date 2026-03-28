@@ -84,7 +84,7 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", next);
   // Update browser chrome color
   document.querySelector('meta[name="theme-color"]').content =
-    next === "light" ? "#f5f3ff" : "#0f0e17";
+    next === "light" ? "#f8f7fd" : "#191830";
 });
 
 // --- Cookie Consent ---
