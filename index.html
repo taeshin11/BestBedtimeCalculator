@@ -11,6 +11,8 @@
   <meta name="theme-color" content="#191830">
   <meta name="google-site-verification" content="WddgcbVJsL2BGHNAje5m6DK56IcR0Mw5UOqozI2Xtrc" />
   <link rel="canonical" href="https://best-bedtime-calculator.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://best-bedtime-calculator.vercel.app/">
+  <link rel="alternate" hreflang="x-default" href="https://best-bedtime-calculator.vercel.app/">
 
   <!-- Favicon (inline SVG moon) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
@@ -24,19 +26,23 @@
   <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json">
 
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/script.js" as="script" crossorigin>
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Best Bedtime Calculator | Sleep Cycle Optimizer">
   <meta property="og:description" content="Calculate your ideal bedtime based on 90-minute REM sleep cycles. Wake up feeling refreshed every morning.">
   <meta property="og:url" content="https://best-bedtime-calculator.vercel.app/">
   <meta property="og:site_name" content="Sleep Cycle Optimizer">
-  <meta property="og:image" content="https://best-bedtime-calculator.vercel.app/og-image.png">
+  <meta property="og:image" content="https://best-bedtime-calculator.vercel.app/og-image.svg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Best Bedtime Calculator | Sleep Cycle Optimizer">
   <meta name="twitter:description" content="Find the perfect bedtime using sleep science. Free REM sleep cycle calculator.">
-  <meta name="twitter:image" content="https://best-bedtime-calculator.vercel.app/og-image.png">
+  <meta name="twitter:image" content="https://best-bedtime-calculator.vercel.app/og-image.svg">
 
   <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
@@ -95,8 +101,105 @@
           "@type": "Answer",
           "text": "Sleep latency is the time it takes to fall asleep after lying down. The average is about 15 minutes. This calculator accounts for sleep latency so the bedtimes you see include that buffer."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it better to get 6 hours of sleep or 7.5 hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "7.5 hours (5 complete sleep cycles) is generally better than 6 hours (4 cycles). Five cycles give your body enough time for adequate deep sleep and REM sleep, which are critical for memory, immune function, and emotional regulation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I take a nap if I didn't sleep well?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A short 20-minute power nap in the early afternoon (1-3 PM) can help compensate for a poor night's sleep without disrupting your next bedtime. Avoid napping after 3 PM or for longer than 30 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What time should I go to bed if I wake up at 6 AM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a 6:00 AM wake-up, the optimal bedtimes are 8:45 PM (6 cycles, 9h), 10:15 PM (5 cycles, 7.5h), 11:45 PM (4 cycles, 6h), or 1:15 AM (3 cycles, 4.5h). We recommend 10:15 PM or 8:45 PM for the best rest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I fall asleep faster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Try the 4-7-8 breathing technique: breathe in for 4 seconds, hold for 7, exhale for 8. Keep your room cool (60-67°F / 15-19°C), avoid screens 30 minutes before bed, and maintain a consistent sleep schedule."
+        }
       }
     ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo (for rich snippet) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Your Best Bedtime",
+    "description": "Use our sleep cycle calculator to find the optimal time to go to bed based on when you need to wake up.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Set your wake-up time",
+        "text": "Select the hour, minute, and AM/PM of when you need to wake up."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Adjust sleep latency (optional)",
+        "text": "Open Settings to change the estimated time to fall asleep (default: 15 minutes)."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Click Calculate Bedtime",
+        "text": "Press the Calculate button to see 4 optimal bedtime options based on 90-minute sleep cycles."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose a recommended bedtime",
+        "text": "Pick one of the highlighted recommended bedtimes (5 or 6 cycles) for the best rest."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://best-bedtime-calculator.vercel.app/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: SiteNavigationElement -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sleep Cycle Optimizer",
+    "alternateName": "Best Bedtime Calculator",
+    "url": "https://best-bedtime-calculator.vercel.app/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://best-bedtime-calculator.vercel.app/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 
@@ -273,13 +376,65 @@
       <p>Most adults need <strong>5 to 6 complete cycles</strong> (7.5&ndash;9 hours) per night. This calculator factors in an average of <strong>15 minutes</strong> of sleep latency (the time it takes to fall asleep) to give you the most accurate bedtime recommendations.</p>
     </section>
 
+    <!-- Internal Links — SEO & Traffic -->
+    <section class="explore" aria-label="Explore More Sleep Tools">
+      <h2 class="explore__heading">Explore More Sleep Tools</h2>
+      <div class="explore__grid">
+        <a href="/nap-calculator.html" class="explore__card">
+          <span class="explore__icon">😴</span>
+          <strong>Nap Calculator</strong>
+          <span>Find the perfect nap length for maximum energy</span>
+        </a>
+        <a href="/sleep-by-age.html" class="explore__card">
+          <span class="explore__icon">📊</span>
+          <strong>Sleep By Age</strong>
+          <span>How much sleep you need at every age</span>
+        </a>
+        <a href="/sleep-tips.html" class="explore__card">
+          <span class="explore__icon">💡</span>
+          <strong>Sleep Tips</strong>
+          <span>Science-backed tips to fall asleep faster</span>
+        </a>
+        <a href="/how-to-use.html" class="explore__card">
+          <span class="explore__icon">📖</span>
+          <strong>How to Use</strong>
+          <span>Get the most out of this calculator</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Pre-computed Bedtime Table (SEO content for common queries) -->
+    <section class="bedtime-table" aria-label="Bedtime Chart">
+      <h2 class="bedtime-table__heading">Bedtime Chart for Common Wake-Up Times</h2>
+      <p class="bedtime-table__intro">Quick reference: optimal bedtimes for popular wake-up times (based on 5 sleep cycles / 7.5 hours + 15 min to fall asleep).</p>
+      <div class="bedtime-table__scroll">
+        <table class="bedtime-table__table">
+          <thead>
+            <tr><th>Wake Up</th><th>6 Cycles (9h)</th><th>5 Cycles (7.5h)</th><th>4 Cycles (6h)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>5:00 AM</strong></td><td>7:45 PM</td><td class="highlight">9:15 PM</td><td>10:45 PM</td></tr>
+            <tr><td><strong>5:30 AM</strong></td><td>8:15 PM</td><td class="highlight">9:45 PM</td><td>11:15 PM</td></tr>
+            <tr><td><strong>6:00 AM</strong></td><td>8:45 PM</td><td class="highlight">10:15 PM</td><td>11:45 PM</td></tr>
+            <tr><td><strong>6:30 AM</strong></td><td>9:15 PM</td><td class="highlight">10:45 PM</td><td>12:15 AM</td></tr>
+            <tr><td><strong>7:00 AM</strong></td><td>9:45 PM</td><td class="highlight">11:15 PM</td><td>12:45 AM</td></tr>
+            <tr><td><strong>7:30 AM</strong></td><td>10:15 PM</td><td class="highlight">11:45 PM</td><td>1:15 AM</td></tr>
+            <tr><td><strong>8:00 AM</strong></td><td>10:45 PM</td><td class="highlight">12:15 AM</td><td>1:45 AM</td></tr>
+            <tr><td><strong>8:30 AM</strong></td><td>11:15 PM</td><td class="highlight">12:45 AM</td><td>2:15 AM</td></tr>
+            <tr><td><strong>9:00 AM</strong></td><td>11:45 PM</td><td class="highlight">1:15 AM</td><td>2:45 AM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="bedtime-table__note">Green = recommended (5 cycles). Use the calculator above for custom times and adjustable sleep latency.</p>
+    </section>
+
     <!-- FAQ Section (targets Google "People Also Ask") -->
     <section class="faq" aria-label="Frequently Asked Questions">
       <h2 class="faq__heading">Frequently Asked Questions</h2>
 
       <details class="faq__item">
         <summary class="faq__question">How many hours of sleep do I need?</summary>
-        <p class="faq__answer">Most adults need 7 to 9 hours of sleep per night, which is 5 to 6 complete 90-minute sleep cycles. Individual needs vary, but consistently getting fewer than 6 hours is associated with health risks.</p>
+        <p class="faq__answer">Most adults need 7 to 9 hours of sleep per night, which is 5 to 6 complete 90-minute sleep cycles. Individual needs vary, but consistently getting fewer than 6 hours is associated with health risks. See our <a href="/sleep-by-age.html" style="color:var(--color-primary-light)">sleep requirements by age</a> guide for detailed recommendations.</p>
       </details>
 
       <details class="faq__item">
@@ -295,6 +450,26 @@
       <details class="faq__item">
         <summary class="faq__question">What is sleep latency?</summary>
         <p class="faq__answer">Sleep latency is the time it takes to fall asleep after lying down. The average is about 15 minutes. This calculator accounts for sleep latency so the bedtimes you see include that buffer. You can adjust this in the settings.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">Is it better to get 6 hours of sleep or 7.5 hours?</summary>
+        <p class="faq__answer">7.5 hours (5 complete sleep cycles) is generally better than 6 hours (4 cycles). Five cycles give your body enough time for adequate deep sleep and REM sleep, which are critical for memory, immune function, and emotional regulation.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">Should I take a nap if I didn't sleep well?</summary>
+        <p class="faq__answer">A short 20-minute power nap in the early afternoon (1-3 PM) can help compensate for a poor night's sleep without disrupting your next bedtime. Avoid napping after 3 PM or for longer than 30 minutes. Try our <a href="/nap-calculator.html" style="color:var(--color-primary-light)">nap calculator</a> for optimal nap timing.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">What time should I go to bed if I wake up at 6 AM?</summary>
+        <p class="faq__answer">For a 6:00 AM wake-up, the optimal bedtimes are 8:45 PM (6 cycles, 9h), 10:15 PM (5 cycles, 7.5h), 11:45 PM (4 cycles, 6h), or 1:15 AM (3 cycles, 4.5h). We recommend 10:15 PM or 8:45 PM for the best rest. These times include 15 minutes to fall asleep.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">How can I fall asleep faster?</summary>
+        <p class="faq__answer">Try the 4-7-8 breathing technique: breathe in for 4 seconds, hold for 7, exhale for 8. Also keep your room cool (60-67°F / 15-19°C), avoid screens 30 minutes before bed, and maintain a consistent sleep schedule. Read our full <a href="/sleep-tips.html" style="color:var(--color-primary-light)">sleep tips guide</a> for more techniques.</p>
       </details>
     </section>
   </main>
@@ -332,15 +507,25 @@
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="/about.html">About</a>
       <a href="/how-to-use.html">How to Use</a>
+      <a href="/sleep-tips.html">Sleep Tips</a>
+      <a href="/nap-calculator.html">Nap Calculator</a>
+      <a href="/sleep-by-age.html">Sleep By Age</a>
       <a href="/privacy-policy.html">Privacy Policy</a>
       <a href="/terms-of-service.html">Terms of Service</a>
     </nav>
     <p>&copy; 2026 Sleep Cycle Optimizer. All rights reserved.</p>
+    <p class="footer-feedback">Have suggestions? <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback">Send us feedback</a></p>
     <div class="visitor-counter" id="visitor-counter" aria-label="Visitor statistics">
       <span>Today: <strong id="visitors-today">-</strong></span>
       <span>Total: <strong id="visitors-total">-</strong></span>
     </div>
   </footer>
+
+  <!-- Floating Feedback Button -->
+  <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback" class="feedback-fab" aria-label="Send feedback">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Feedback
+  </a>
 
   <!-- Cookie Consent Banner -->
   <div class="cookie-banner" id="cookie-banner" hidden>

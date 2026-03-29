@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nap Calculator | Find Your Perfect Nap Length - Sleep Cycle Optimizer</title>
+  <meta name="description" content="Free nap calculator to find the best nap length for you. Discover the ideal power nap duration, when to nap, and set your wake alarm. Backed by NASA sleep research.">
+  <meta name="keywords" content="nap calculator, power nap, how long should I nap, best nap length, nap duration, power nap calculator, optimal nap time, NASA nap study, nap benefits, short nap vs long nap">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sleep Cycle Optimizer">
+  <meta name="theme-color" content="#191830">
+  <link rel="canonical" href="https://best-bedtime-calculator.vercel.app/nap-calculator.html">
+
+  <!-- Favicon (inline SVG moon) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nap Calculator | Find Your Perfect Nap Length">
+  <meta property="og:description" content="Free nap calculator to find the best nap length. Discover whether a power nap or full sleep cycle nap is right for you, backed by NASA research.">
+  <meta property="og:url" content="https://best-bedtime-calculator.vercel.app/nap-calculator.html">
+  <meta property="og:site_name" content="Sleep Cycle Optimizer">
+  <meta property="og:image" content="https://best-bedtime-calculator.vercel.app/og-image.svg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nap Calculator | Find Your Perfect Nap Length">
+  <meta name="twitter:description" content="How long should you nap? Use our free nap calculator to find the ideal nap duration and wake alarm time. Backed by NASA sleep science.">
+  <meta name="twitter:image" content="https://best-bedtime-calculator.vercel.app/og-image.svg">
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://best-bedtime-calculator.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Nap Calculator", "item": "https://best-bedtime-calculator.vercel.app/nap-calculator.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long should I nap for maximum benefit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ideal nap length depends on your goal. A 20-minute power nap is best for a quick alertness boost without grogginess. A 90-minute nap lets you complete a full sleep cycle, improving creativity and emotional memory. Avoid napping for 30-60 minutes, as waking during deep sleep causes significant sleep inertia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a power nap and how long should it be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A power nap is a short nap lasting 15-20 minutes. It is designed to boost alertness, concentration, and mood without entering deep sleep stages. NASA research found that a 26-minute nap improved pilot alertness by 54% and performance by 34%. Power naps are ideal for a midday energy boost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best time of day to take a nap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best time to nap is between 1:00 PM and 3:00 PM. This aligns with the natural post-lunch dip in your circadian rhythm, when your body temperature drops slightly and sleepiness increases. Napping after 3:00 PM can interfere with your ability to fall asleep at night."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do I feel groggy after a nap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Post-nap grogginess, called sleep inertia, happens when you wake up during deep sleep (NREM Stage 3). This typically occurs with naps lasting 30-60 minutes. To avoid it, keep naps to 20 minutes or less, or extend to 90 minutes so you complete a full sleep cycle and wake during light sleep."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can napping replace lost nighttime sleep?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naps can partially compensate for lost sleep by restoring alertness and reducing fatigue, but they cannot fully replace a good night's sleep. Nighttime sleep provides the sustained deep sleep and multiple REM cycles needed for full physical recovery, immune function, and memory consolidation. Use naps as a supplement, not a substitute."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it bad to nap every day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most healthy adults, a regular short nap of 20-30 minutes is not harmful and can be beneficial. However, if you find yourself needing long naps every day or cannot function without napping, it may indicate insufficient nighttime sleep or an underlying sleep disorder. Consult a healthcare provider if excessive daytime sleepiness persists."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I drink coffee before a nap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, a 'coffee nap' or 'nappuccino' can be highly effective. Drink a cup of coffee immediately before a 20-minute power nap. Caffeine takes about 20-25 minutes to take effect, so it kicks in just as you wake up, combining the restorative benefits of the nap with the alertness boost of caffeine."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7098271335538021" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+  </script>
+
+  <style>
+    .page-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+    .page-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary-light);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .page-content h2:first-of-type {
+      margin-top: 1rem;
+    }
+    .page-content p {
+      color: var(--color-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    .page-content ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .page-content ul li {
+      color: var(--color-text);
+      line-height: 1.8;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+    .page-content strong {
+      color: var(--color-accent);
+    }
+    .page-header {
+      text-align: center;
+      padding: 2rem 0 0.5rem;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+    }
+    .page-content section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .page-content section h2 {
+      margin-top: 0;
+    }
+    .site-footer {
+      margin-top: auto;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+      margin-top: 0.75rem;
+    }
+    .footer-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--color-primary-light);
+    }
+
+    /* Nap Calculator Tool Styles */
+    .nap-tool {
+      background: var(--color-surface);
+      border: 2px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .nap-tool h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .nap-tool__description {
+      text-align: center;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    .nap-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .nap-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      min-height: 80px;
+    }
+    .nap-option:hover {
+      border-color: var(--color-primary-light);
+      transform: translateY(-2px);
+    }
+    .nap-option.selected {
+      border-color: var(--color-primary-light);
+      background: rgba(139, 92, 246, 0.1);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+    }
+    .nap-option__duration {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-primary-light);
+      line-height: 1;
+    }
+    .nap-option__unit {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .nap-result {
+      display: none;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+    .nap-result.visible {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .nap-result__type {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary-light);
+      margin-bottom: 0.25rem;
+    }
+    .nap-result__quality {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .quality-excellent {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+    }
+    .quality-good {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+    }
+    .quality-caution {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+    }
+    .quality-risky {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+    .nap-result__alarm {
+      margin-top: 0.75rem;
+      padding: 1rem;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    .nap-result__alarm-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+    .nap-result__alarm-time {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1.2;
+    }
+    .nap-result__details {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    .nap-result__tip {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: rgba(139, 92, 246, 0.08);
+      border-radius: var(--radius-lg);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .nap-result__tip strong {
+      color: var(--color-primary-light);
+    }
+
+    /* FAQ Styles */
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .faq-item:first-of-type {
+      padding-top: 0;
+    }
+    .faq-question {
+      font-weight: 700;
+      color: var(--color-primary-light);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question::after {
+      content: '-';
+    }
+    .faq-answer {
+      display: none;
+      color: var(--color-text);
+      line-height: 1.8;
+      font-size: 1rem;
+      padding-right: 2rem;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Nap type comparison table */
+    .nap-types-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .nap-type-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .nap-type-card h3 {
+      color: var(--color-primary-light);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .nap-type-card .duration-badge {
+      display: inline-block;
+      background: rgba(139, 92, 246, 0.12);
+      color: var(--color-primary-light);
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .nap-type-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="app">
+    <header class="app__header">
+      <div class="app__topbar">
+        <a href="/" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:0.5rem;">
+          <h1 class="app__title">
+            <svg class="app__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" opacity="0.2"/>
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Sleep Cycle Optimizer
+          </h1>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <p class="app__subtitle">Find your ideal nap duration and wake-up time</p>
+    </header>
+
+    <article class="page-content">
+      <div class="page-header">
+        <h1>Nap Calculator</h1>
+        <p>Discover the perfect nap length to recharge without grogginess, backed by sleep science and NASA research.</p>
+      </div>
+
+      <!-- Interactive Nap Calculator -->
+      <div class="nap-tool">
+        <h2>Calculate Your Nap</h2>
+        <p class="nap-tool__description">Select a nap duration to see your nap type, wake alarm time, and quality rating.</p>
+
+        <div class="nap-options" id="nap-options">
+          <button class="nap-option" data-minutes="15" type="button">
+            <span class="nap-option__duration">15</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+          <button class="nap-option" data-minutes="20" type="button">
+            <span class="nap-option__duration">20</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+          <button class="nap-option" data-minutes="30" type="button">
+            <span class="nap-option__duration">30</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+          <button class="nap-option" data-minutes="45" type="button">
+            <span class="nap-option__duration">45</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+          <button class="nap-option" data-minutes="60" type="button">
+            <span class="nap-option__duration">60</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+          <button class="nap-option" data-minutes="90" type="button">
+            <span class="nap-option__duration">90</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+          <button class="nap-option" data-minutes="120" type="button">
+            <span class="nap-option__duration">120</span>
+            <span class="nap-option__unit">minutes</span>
+          </button>
+        </div>
+
+        <div class="nap-result" id="nap-result">
+          <div class="nap-result__type" id="nap-type-name"></div>
+          <div class="nap-result__quality" id="nap-quality"></div>
+          <div class="nap-result__alarm">
+            <div class="nap-result__alarm-label">Set your alarm for</div>
+            <div class="nap-result__alarm-time" id="nap-alarm-time"></div>
+          </div>
+          <div class="nap-result__details" id="nap-details"></div>
+          <div class="nap-result__tip" id="nap-tip"></div>
+        </div>
+      </div>
+
+      <!-- Types of Naps -->
+      <section>
+        <h2>Types of Naps: Which One Is Right for You?</h2>
+        <p>Not all naps are created equal. The duration of your nap determines which sleep stages you enter, which directly affects how you feel when you wake up. Understanding the different nap types helps you choose the right one for your situation.</p>
+
+        <div class="nap-types-grid">
+          <div class="nap-type-card">
+            <h3>Nano Nap</h3>
+            <span class="duration-badge">10-15 minutes</span>
+            <p>The shortest effective nap. You stay in NREM Stage 1 (light sleep), gaining a quick reset of alertness without any risk of sleep inertia. Ideal when you only have a brief break and need a subtle energy boost.</p>
+          </div>
+          <div class="nap-type-card">
+            <h3>Power Nap</h3>
+            <span class="duration-badge">20 minutes</span>
+            <p>The gold standard of napping. You dip into NREM Stage 2, benefiting from sleep spindles that enhance motor learning and memory consolidation. You wake up before entering deep sleep, so there is virtually no grogginess. NASA research validated this as the ideal nap length for peak performance.</p>
+          </div>
+          <div class="nap-type-card">
+            <h3>Short Nap</h3>
+            <span class="duration-badge">30 minutes</span>
+            <p>Slightly longer than a power nap, this duration begins to approach deep sleep territory. Some people may experience mild sleep inertia upon waking, but the effects dissipate within 10-15 minutes. Useful when you need a bit more recovery than a power nap provides.</p>
+          </div>
+          <div class="nap-type-card">
+            <h3>Deep Sleep Nap</h3>
+            <span class="duration-badge">45-60 minutes</span>
+            <p>At this duration, you enter NREM Stage 3 (slow-wave deep sleep). While deep sleep provides excellent physical restoration, waking up mid-cycle often causes significant grogginess. Best used when you can afford 15-20 minutes of recovery time after waking, or when you are severely sleep-deprived.</p>
+          </div>
+          <div class="nap-type-card">
+            <h3>Full Cycle Nap</h3>
+            <span class="duration-badge">90 minutes</span>
+            <p>A complete sleep cycle including light sleep, deep sleep, and REM sleep. Because you wake at the end of a natural cycle, sleep inertia is minimal despite the longer duration. This nap enhances creativity, emotional memory, and procedural learning. It is the best choice when you have time for a longer rest.</p>
+          </div>
+          <div class="nap-type-card">
+            <h3>Recovery Nap</h3>
+            <span class="duration-badge">120 minutes</span>
+            <p>Two full sleep cycles, providing substantial physical and mental recovery. This is essentially a short sleep session and is most appropriate for making up a significant sleep deficit, such as after an all-night shift or extreme sleep deprivation. Aim to wake at the 90-minute mark if possible to avoid mid-cycle grogginess.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits of Napping -->
+      <section>
+        <h2>Proven Benefits of Napping</h2>
+        <p>Napping is not a sign of laziness. It is a scientifically validated tool for enhancing performance, health, and well-being. Decades of research from institutions including NASA, Harvard Medical School, and the University of California have documented the wide-ranging benefits of strategic napping.</p>
+        <ul>
+          <li><strong>Boosted alertness and reaction time:</strong> Even a short 15-20 minute nap can restore alertness for several hours. This is especially critical for drivers, pilots, healthcare workers, and anyone in a safety-sensitive role.</li>
+          <li><strong>Enhanced memory and learning:</strong> Sleep spindles during NREM Stage 2 and REM sleep both play key roles in consolidating memories. Napping after studying or learning a new skill significantly improves retention compared to staying awake.</li>
+          <li><strong>Improved mood and emotional resilience:</strong> Sleep deprivation amplifies negative emotional responses and reduces your ability to regulate emotions. A well-timed nap can reset emotional reactivity and improve your overall outlook.</li>
+          <li><strong>Cardiovascular health:</strong> A study published in the British Medical Journal found that people who napped once or twice per week had a significantly lower risk of cardiovascular events compared to non-nappers. Regular moderate napping appears to reduce stress on the heart.</li>
+          <li><strong>Increased creativity and problem-solving:</strong> REM sleep, accessible during 90-minute naps, is strongly linked to creative insight. Many famous inventors and artists, including Salvador Dali and Thomas Edison, were known for their strategic napping habits.</li>
+          <li><strong>Physical performance gains:</strong> Athletes who incorporate naps into their training schedules show measurable improvements in sprint times, endurance, and accuracy. Napping helps muscles recover and consolidates motor memory.</li>
+          <li><strong>Reduced stress hormones:</strong> Napping lowers cortisol levels and supports immune function. Even a short nap can counteract some of the immunological damage caused by a poor night of sleep.</li>
+        </ul>
+      </section>
+
+      <!-- Best Time to Nap -->
+      <section>
+        <h2>When Is the Best Time to Nap?</h2>
+        <p>Timing your nap correctly is just as important as choosing the right duration. Your body's circadian rhythm creates a natural window of increased sleepiness in the early afternoon, making it the ideal time to nap.</p>
+        <p>The <strong>optimal nap window is between 1:00 PM and 3:00 PM</strong> for most people who follow a standard nighttime sleep schedule. During this period, your core body temperature dips slightly and your circadian alerting signal weakens, creating a natural sleep-friendly zone. This is the well-known "post-lunch dip," which occurs regardless of whether you actually eat lunch.</p>
+        <p>Napping too late in the afternoon (after 3:00 PM) can push back your natural sleep drive, making it harder to fall asleep at your regular bedtime. This is because napping reduces the buildup of adenosine, a chemical that accumulates during wakefulness and promotes sleepiness. If you discharge too much adenosine late in the day, you may find yourself lying awake at night.</p>
+        <p>For shift workers or people with non-standard schedules, the best nap time is typically 6-8 hours after waking up. This is when the circadian dip naturally occurs relative to your personal sleep-wake cycle, regardless of what the clock says.</p>
+        <p>If you know you will be staying up late, a <strong>prophylactic nap</strong> taken in advance can bank alertness before you need it. Research on military personnel shows that a preemptive 90-minute nap before a period of extended wakefulness significantly reduces fatigue and maintains cognitive performance.</p>
+      </section>
+
+      <!-- NASA Study -->
+      <section>
+        <h2>The NASA Nap Study: Science Behind the Power Nap</h2>
+        <p>One of the most frequently cited studies on napping comes from NASA. In 1995, NASA conducted a landmark study on the effects of planned naps on long-haul flight crews. The study, published in the journal <em>Psychophysiology</em>, examined pilots and astronauts who took a brief nap during controlled rest periods while their co-pilots managed the aircraft.</p>
+        <p>The results were remarkable. Pilots who took a <strong>26-minute nap</strong> showed a <strong>54% improvement in alertness</strong> and a <strong>34% improvement in task performance</strong> compared to pilots who did not nap. These gains persisted for hours after the nap ended, demonstrating that even a very short sleep period can produce substantial and lasting cognitive benefits.</p>
+        <p>The NASA study also found that the napping pilots made fewer errors during critical phases of flight and reported feeling significantly more alert during the final approach and landing, which is the most demanding period. The control group (non-nappers) showed progressive deterioration in both alertness and performance as the flight progressed.</p>
+        <p>This research was instrumental in changing fatigue management policies across the aviation industry and helped establish the concept of the "power nap" in mainstream culture. It demonstrated that strategically timed short naps are one of the most effective countermeasures against fatigue-related performance decline, and the findings have been replicated in numerous subsequent studies across various industries.</p>
+        <p>The key takeaway from the NASA research is clear: a nap does not need to be long to be effective. Even 20-30 minutes of sleep can produce performance benefits comparable to much longer rest periods, without the grogginess associated with deeper sleep.</p>
+      </section>
+
+      <!-- When NOT to Nap -->
+      <section>
+        <h2>When You Should NOT Nap</h2>
+        <p>While napping offers many benefits, there are specific situations where napping can be counterproductive or even harmful to your overall sleep health. Knowing when to avoid napping is just as important as knowing how to nap effectively.</p>
+        <ul>
+          <li><strong>If you have insomnia:</strong> People who struggle to fall asleep or stay asleep at night should generally avoid daytime napping. Naps reduce your homeostatic sleep drive (the pressure to sleep), which can make nighttime insomnia worse. If you have chronic insomnia, cognitive behavioral therapy for insomnia (CBT-I) typically includes eliminating daytime naps as a core recommendation.</li>
+          <li><strong>If it is after 3:00 PM:</strong> Late afternoon and evening naps interfere with your ability to fall asleep at your normal bedtime. The closer you nap to bedtime, the more disruptive it becomes to your nighttime sleep architecture.</li>
+          <li><strong>If you nap for too long without planning:</strong> Unintentional long naps (over 60 minutes) during the day can fragment your nighttime sleep and shift your circadian rhythm. If you find yourself regularly falling into unplanned long naps, it may indicate an underlying sleep disorder that warrants medical evaluation.</li>
+          <li><strong>If you have sleep apnea:</strong> While napping itself is not harmful for people with sleep apnea, napping without your CPAP machine means you are sleeping with untreated apnea, which reduces the restorative value of the nap and can worsen oxygen desaturation.</li>
+          <li><strong>If excessive sleepiness is a new symptom:</strong> Sudden, overwhelming daytime sleepiness that requires frequent napping may be a sign of conditions such as narcolepsy, depression, thyroid disorders, or other medical issues. If this describes your situation, consult a healthcare provider rather than simply napping through it.</li>
+          <li><strong>If it replaces proper nighttime sleep:</strong> Using naps as a crutch to compensate for consistently poor nighttime sleep is not sustainable. While naps can serve as a temporary bridge, the priority should always be improving the quality and duration of your primary sleep period.</li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section>
+        <h2>Frequently Asked Questions About Napping</h2>
+
+        <div class="faq-item open">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How long should I nap for maximum benefit?</div>
+          <div class="faq-answer">The ideal nap length depends on your goal. A 20-minute power nap is best for a quick alertness boost without grogginess. A 90-minute nap lets you complete a full sleep cycle, improving creativity and emotional memory. Avoid napping for 30-60 minutes if possible, as waking during deep sleep causes significant sleep inertia. If you only have 10 minutes, even that short rest can provide measurable benefits.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is a power nap and how long should it be?</div>
+          <div class="faq-answer">A power nap is a short nap lasting 15-20 minutes, designed to boost alertness, concentration, and mood without entering deep sleep stages. NASA research found that a 26-minute nap improved pilot alertness by 54% and performance by 34%. The name "power nap" reflects the disproportionately large benefit gained from a relatively small investment of time. To maximize a power nap, find a quiet environment, set an alarm, and avoid screens immediately before closing your eyes.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is the best time of day to take a nap?</div>
+          <div class="faq-answer">The best time to nap is between 1:00 PM and 3:00 PM. This aligns with the natural post-lunch dip in your circadian rhythm, when your body temperature drops slightly and sleepiness increases. Napping during this window takes advantage of your body's natural inclination toward rest, making it easier to fall asleep quickly and wake up refreshed. Napping after 3:00 PM can interfere with your nighttime sleep.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Why do I feel groggy after a nap?</div>
+          <div class="faq-answer">Post-nap grogginess, called sleep inertia, happens when you wake up during deep sleep (NREM Stage 3). This typically occurs with naps lasting 30-60 minutes, as your brain has entered slow-wave sleep but has not had time to complete the cycle and return to light sleep. To avoid this, keep naps to 20 minutes or less, or extend to a full 90 minutes so you complete an entire sleep cycle and wake naturally during light sleep.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can napping replace lost nighttime sleep?</div>
+          <div class="faq-answer">Naps can partially compensate for lost sleep by restoring alertness and reducing fatigue, but they cannot fully replace a good night's sleep. Nighttime sleep provides sustained deep sleep and multiple consecutive REM cycles needed for full physical recovery, immune function, and comprehensive memory consolidation. Think of naps as a supplement to your primary sleep, not a substitute. If you consistently need naps to function, focus on improving your nighttime sleep quality and duration.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is it bad to nap every day?</div>
+          <div class="faq-answer">For most healthy adults, a regular short nap of 20-30 minutes is not harmful and can actually be quite beneficial. Many cultures around the world incorporate daily naps (such as the siesta tradition). However, if you find yourself needing long naps every day or cannot function without napping, it may indicate insufficient nighttime sleep, poor sleep quality, or an underlying sleep disorder. Consult a healthcare provider if excessive daytime sleepiness persists despite adequate nighttime sleep.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Should I drink coffee before a nap?</div>
+          <div class="faq-answer">Yes, a "coffee nap" (sometimes called a "nappuccino") can be surprisingly effective. The strategy is to drink a cup of coffee immediately before taking a 20-minute nap. Caffeine takes about 20-25 minutes to be absorbed and reach your brain, so it kicks in right as you are waking up. You get the restorative benefits of the nap combined with the alertness boost of caffeine simultaneously. Studies have shown that coffee naps outperform both naps alone and caffeine alone for improving alertness and reducing driving errors.</div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Sleep Cycle Optimizer. All rights reserved.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/how-to-use.html">How to Use</a>
+      <a href="/sleep-tips.html">Sleep Tips</a>
+      <a href="/nap-calculator.html">Nap Calculator</a>
+      <a href="/sleep-by-age.html">Sleep By Age</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+    </nav>
+    <p style="margin-top:0.4rem;font-size:0.75rem;color:var(--color-text-muted)">Have suggestions? <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback" style="color:var(--color-primary-light);text-decoration:none;">Send us feedback</a></p>
+  </footer>
+
+  <script>
+    // Theme toggle
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      const c = document.documentElement.getAttribute('data-theme');
+      const n = c === 'light' ? 'dark' : 'light';
+      if (n === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', n);
+      }
+      localStorage.setItem('theme', n);
+    });
+
+    const st = localStorage.getItem('theme');
+    if (st) document.documentElement.setAttribute('data-theme', st === 'dark' ? null : st);
+
+    // Nap Calculator Logic
+    const napData = {
+      15: {
+        type: 'Nano Nap',
+        quality: 'Good',
+        qualityClass: 'quality-good',
+        details: 'A 15-minute nano nap keeps you in light sleep (NREM Stage 1). You will wake up feeling slightly refreshed with zero grogginess. Best for a quick reset during a short break.',
+        tip: 'Tip: Set a gentle alarm. Even if you do not fully fall asleep, resting with your eyes closed in a quiet space provides measurable cognitive benefits.'
+      },
+      20: {
+        type: 'Power Nap',
+        quality: 'Excellent',
+        qualityClass: 'quality-excellent',
+        details: 'The optimal nap duration according to NASA research. You enter NREM Stage 2, gaining sleep spindles that boost memory and motor learning. You wake before deep sleep, so there is virtually no grogginess.',
+        tip: 'Tip: This is the gold standard of napping. Pair it with a cup of coffee right before for a "coffee nap" that combines the best of both worlds.'
+      },
+      30: {
+        type: 'Short Nap',
+        quality: 'Good',
+        qualityClass: 'quality-good',
+        details: 'A 30-minute nap provides more restorative sleep than a power nap but approaches deep sleep territory. You may experience mild grogginess for 5-10 minutes after waking, but alertness benefits last longer.',
+        tip: 'Tip: If you feel slightly groggy upon waking, splash cold water on your face or step into bright light to accelerate the transition to full alertness.'
+      },
+      45: {
+        type: 'Deep Sleep Nap',
+        quality: 'Caution',
+        qualityClass: 'quality-caution',
+        details: 'At 45 minutes you are likely in NREM Stage 3 (slow-wave deep sleep). Waking mid-deep-sleep can cause noticeable sleep inertia lasting 15-20 minutes. However, the deep sleep provides excellent physical restoration.',
+        tip: 'Tip: Only choose this duration if you can afford recovery time after waking. Consider a 20-minute or 90-minute nap instead to avoid deep sleep disruption.'
+      },
+      60: {
+        type: 'Deep Sleep Nap',
+        quality: 'Risky',
+        qualityClass: 'quality-risky',
+        details: 'A 60-minute nap takes you deep into slow-wave sleep. While it provides significant physical recovery and memory benefits, waking up can be very difficult and grogginess may last 20-30 minutes. This is often called the "danger zone" of napping.',
+        tip: 'Tip: If you have 60 minutes, consider either napping for only 20 minutes and using the remaining time productively, or extending to 90 minutes for a full cycle with a clean wake-up.'
+      },
+      90: {
+        type: 'Full Cycle Nap',
+        quality: 'Excellent',
+        qualityClass: 'quality-excellent',
+        details: 'A complete sleep cycle including light sleep, deep sleep, and REM. You wake naturally at the end of the cycle during light sleep, resulting in minimal grogginess. This nap boosts creativity, emotional processing, and procedural memory.',
+        tip: 'Tip: A 90-minute nap is ideal before a creative task, exam, or athletic event. The REM sleep you gain enhances both creative insight and physical performance.'
+      },
+      120: {
+        type: 'Recovery Nap',
+        quality: 'Good',
+        qualityClass: 'quality-good',
+        details: 'Two full sleep cycles providing substantial recovery. Best reserved for significant sleep debt, such as after an overnight shift or a night of very poor sleep. You will get both deep sleep and extended REM time.',
+        tip: 'Tip: Try to wake at 90 minutes rather than 120 if possible, as 120 minutes may land you mid-cycle. Set alarms at both 90 and 120 minutes and assess how you feel at the first alarm.'
+      }
+    };
+
+    function formatTime(date) {
+      let h = date.getHours();
+      let m = date.getMinutes();
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12;
+      if (h === 0) h = 12;
+      m = m < 10 ? '0' + m : m;
+      return h + ':' + m + ' ' + ampm;
+    }
+
+    document.querySelectorAll('.nap-option').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const minutes = parseInt(this.dataset.minutes);
+        const data = napData[minutes];
+
+        // Update selected state
+        document.querySelectorAll('.nap-option').forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+
+        // Calculate wake time
+        const now = new Date();
+        const wakeTime = new Date(now.getTime() + minutes * 60 * 1000);
+
+        // Populate result
+        document.getElementById('nap-type-name').textContent = data.type + ' (' + minutes + ' min)';
+
+        const qualityEl = document.getElementById('nap-quality');
+        qualityEl.textContent = data.quality;
+        qualityEl.className = 'nap-result__quality ' + data.qualityClass;
+
+        document.getElementById('nap-alarm-time').textContent = formatTime(wakeTime);
+        document.getElementById('nap-details').textContent = data.details;
+        document.getElementById('nap-tip').innerHTML = data.tip;
+
+        // Show result
+        const resultEl = document.getElementById('nap-result');
+        resultEl.classList.add('visible');
+        resultEl.style.animation = 'none';
+        resultEl.offsetHeight; // trigger reflow
+        resultEl.style.animation = '';
+      });
+    });
+  </script>
+</body>
+</html>

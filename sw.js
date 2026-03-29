@@ -1,5 +1,5 @@
-const CACHE_NAME = "sleep-calc-v1";
-const ASSETS = ["/", "/style.css", "/script.js"];
+const CACHE_NAME = "sleep-calc-v2";
+const ASSETS = ["/", "/style.css", "/script.js", "/nap-calculator.html", "/sleep-tips.html", "/sleep-by-age.html"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE_NAME).then((c) => c.addAll(ASSETS)));

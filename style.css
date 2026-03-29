@@ -669,6 +669,174 @@ body {
   min-height: 0;
 }
 
+/* --- Bedtime Chart Table --- */
+.bedtime-table {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bedtime-table__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.bedtime-table__intro {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.bedtime-table__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bedtime-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.bedtime-table__table th,
+.bedtime-table__table td {
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bedtime-table__table th {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  background: var(--color-surface-alt);
+}
+
+.bedtime-table__table td.highlight {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.bedtime-table__table tr:hover td {
+  background: var(--color-surface-alt);
+}
+
+.bedtime-table__note {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+/* --- Explore Grid (Internal Links) --- */
+.explore {
+  margin-bottom: 1.5rem;
+}
+
+.explore__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.explore__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.explore__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.explore__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(127, 90, 240, 0.15);
+}
+
+.explore__card strong {
+  font-size: 0.9rem;
+}
+
+.explore__card span:last-child {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.explore__icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 400px) {
+  .explore__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Footer Feedback --- */
+.footer-feedback {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.footer-feedback a {
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-feedback a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* --- Floating Feedback Button --- */
+.feedback-fab {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  z-index: 150;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-family: var(--font);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0.7;
+}
+
+.feedback-fab:hover {
+  opacity: 1;
+  color: var(--color-text);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(127, 90, 240, 0.2);
+}
+
 /* --- Footer --- */
 .site-footer {
   text-align: center;
