@@ -84,6 +84,26 @@ You are an autonomous AI coding agent. To prevent context loss, ensure high code
 - **Milestone 4:** Free Data Collection (Google Sheets Webhook API integration) & SEO Optimization (Meta tags, JSON-LD). -> **`git push`**
 - **Milestone 5:** Final Reviewer QA, bug fixes, and Vercel/Netlify deployment prep (`DEPLOY.md`). -> **`git push`**
 
+### 6. Internationalization (i18n) & Traffic Optimization (Milestone 9)
+
+#### 6.1. Auto-Translation System
+- **File:** `public/i18n.js` — Self-contained i18n system with 12 language translations
+- **Supported Languages:** English (default), Korean, Japanese, Chinese, Spanish, German, French, Portuguese, Italian, Russian, Arabic, Hindi
+- **Features:**
+  - Auto-detects browser language via `navigator.language`
+  - URL parameter override: `?lang=ko`, `?lang=ja`, etc.
+  - Language preference saved to localStorage
+  - Language picker (globe icon) in header — collapses to icon-only on mobile
+  - RTL support for Arabic
+  - All static text translatable via `data-i18n` attributes
+  - Dynamic text (calculator results) uses `window.I18n.t()` function
+
+#### 6.2. Traffic Optimization Measures
+- **hreflang tags** for all 12 supported languages in `<head>` and sitemap
+- **Social sharing buttons** (Twitter/X, Facebook, WhatsApp, Reddit, Pinterest) in footer area
+- **Sitemap updated** with `xhtml:link` alternate language entries
+- **Feedback mechanism** — floating FAB button + footer link to `taeshinkim11@gmail.com`
+
 ---
 **Instruction for Claude Code:**
 If you have read and understood this PRD, acknowledge it. Then, immediately start the "Planner & Initializer" phase of the Harness Design workflow.

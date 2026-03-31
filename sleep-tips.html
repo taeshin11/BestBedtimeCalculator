@@ -631,20 +631,21 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Sleep Cycle Optimizer. All rights reserved.</p>
+    <p data-i18n="footer.copyright">&copy; 2026 Sleep Cycle Optimizer. All rights reserved.</p>
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="/">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/how-to-use.html">How to Use</a>
-      <a href="/sleep-tips.html">Sleep Tips</a>
-      <a href="/nap-calculator.html">Nap Calculator</a>
-      <a href="/sleep-by-age.html">Sleep By Age</a>
-      <a href="/privacy-policy.html">Privacy Policy</a>
-      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="/about.html" data-i18n="footer.about">About</a>
+      <a href="/how-to-use.html" data-i18n="footer.howto">How to Use</a>
+      <a href="/sleep-tips.html" data-i18n="footer.tips">Sleep Tips</a>
+      <a href="/nap-calculator.html" data-i18n="footer.nap">Nap Calculator</a>
+      <a href="/sleep-by-age.html" data-i18n="footer.age">Sleep By Age</a>
+      <a href="/privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
+      <a href="/terms-of-service.html" data-i18n="footer.terms">Terms of Service</a>
     </nav>
-    <p style="margin-top:0.4rem;font-size:0.75rem;color:var(--color-text-muted)">Have suggestions? <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback" style="color:var(--color-primary-light);text-decoration:none;">Send us feedback</a></p>
+    <p style="margin-top:0.4rem;font-size:0.75rem;color:var(--color-text-muted)"><span data-i18n="footer.feedback">Have suggestions?</span> <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback" style="color:var(--color-primary-light);text-decoration:none;" data-i18n="footer.feedback.link">Send us feedback</a></p>
   </footer>
 
+  <script src="/i18n.js"></script>
   <script>
     // Theme toggle
     document.getElementById('theme-toggle')?.addEventListener('click', () => {

@@ -248,22 +248,23 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Sleep Cycle Optimizer.</p>
+    <p data-i18n="footer.copyright">&copy; 2026 Sleep Cycle Optimizer.</p>
     <nav aria-label="Footer navigation">
       <ul class="footer-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/how-to-use.html">How to Use</a></li>
-        <li><a href="/sleep-tips.html">Sleep Tips</a></li>
-        <li><a href="/nap-calculator.html">Nap Calculator</a></li>
-        <li><a href="/sleep-by-age.html">Sleep By Age</a></li>
-        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="/about.html" data-i18n="footer.about">About</a></li>
+        <li><a href="/how-to-use.html" data-i18n="footer.howto">How to Use</a></li>
+        <li><a href="/sleep-tips.html" data-i18n="footer.tips">Sleep Tips</a></li>
+        <li><a href="/nap-calculator.html" data-i18n="footer.nap">Nap Calculator</a></li>
+        <li><a href="/sleep-by-age.html" data-i18n="footer.age">Sleep By Age</a></li>
+        <li><a href="/privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html" data-i18n="footer.terms">Terms of Service</a></li>
       </ul>
     </nav>
-    <p style="font-size:0.75rem;color:var(--text-secondary,#a5a4c6);margin-top:0.4rem;">Have suggestions? <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback" style="color:var(--accent,#7c6ff7);text-decoration:none;">Send us feedback</a></p>
+    <p style="font-size:0.75rem;color:var(--text-secondary,#a5a4c6);margin-top:0.4rem;"><span data-i18n="footer.feedback">Have suggestions?</span> <a href="mailto:taeshinkim11@gmail.com?subject=Sleep%20Cycle%20Optimizer%20Feedback" style="color:var(--accent,#7c6ff7);text-decoration:none;" data-i18n="footer.feedback.link">Send us feedback</a></p>
   </footer>
 
+  <script src="/i18n.js"></script>
   <!-- Theme toggle -->
   <script>
 document.getElementById('theme-toggle')?.addEventListener('click',function(){

@@ -110,13 +110,14 @@ document.querySelectorAll(".mode-tab").forEach((tab) => {
 
     currentMode = tab.dataset.mode;
 
+    const _t = window.I18n ? window.I18n.t : (k) => k;
     if (currentMode === "sleepnow") {
-      calcHeading.textContent = "Going to bed now?";
-      calcBtn.textContent = "Calculate Wake Times";
+      calcHeading.textContent = _t("calc.heading.sleepnow");
+      calcBtn.textContent = _t("calc.btn.sleepnow");
       pickerArea.querySelector(".picker").hidden = true;
     } else {
-      calcHeading.textContent = "What time do you need to wake up?";
-      calcBtn.textContent = "Calculate Bedtime";
+      calcHeading.textContent = _t("calc.heading.bedtime");
+      calcBtn.textContent = _t("calc.btn.bedtime");
       pickerArea.querySelector(".picker").hidden = false;
     }
 
@@ -200,10 +201,11 @@ function calculateWakeTimes() {
 
 // --- Render Results ---
 function renderResults(results, headerText, infoText) {
+  const _t = window.I18n ? window.I18n.t : (k) => k;
   lastResults = { results, headerText, infoText };
   resultsHeading.textContent = headerText;
   resultsInfo.innerHTML = infoText;
-  resultsNote.textContent = `* Includes ~${sleepLatency} minutes to fall asleep. Recommended options give you 5-6 full sleep cycles for optimal rest.`;
+  resultsNote.textContent = _t("results.note", { min: sleepLatency });
   timelineEl.innerHTML = "";
 
   results.forEach((bt) => {
@@ -214,12 +216,12 @@ function renderResults(results, headerText, infoText) {
     const timeStr = formatTime(bt.hour12, bt.minute, bt.ampm);
 
     card.innerHTML = `
-      <div class="timeline__cycles">${bt.cycles}<br>cycles</div>
+      <div class="timeline__cycles">${bt.cycles}<br>${_t("timeline.cycles")}</div>
       <div class="timeline__body">
         <div class="timeline__time">${timeStr}</div>
-        <div class="timeline__meta">${bt.totalHours} hours of sleep</div>
+        <div class="timeline__meta">${bt.totalHours} ${_t("timeline.hours")}</div>
       </div>
-      ${bt.recommended ? '<span class="timeline__badge">Recommended</span>' : ""}
+      ${bt.recommended ? `<span class="timeline__badge">${_t("timeline.recommended")}</span>` : ""}
     `;
 
     timelineEl.appendChild(card);
@@ -234,12 +236,13 @@ function renderResults(results, headerText, infoText) {
 
 // --- Sleep Quality Bar ---
 function renderSleepBar(results) {
+  const _t = window.I18n ? window.I18n.t : (k) => k;
   sleepBarEl.innerHTML = "";
   const qualityMap = {
-    3: { label: "Poor", cls: "poor" },
-    4: { label: "Fair", cls: "fair" },
-    5: { label: "Good", cls: "good" },
-    6: { label: "Great", cls: "great" },
+    3: { label: _t("quality.poor"), cls: "poor" },
+    4: { label: _t("quality.fair"), cls: "fair" },
+    5: { label: _t("quality.good"), cls: "good" },
+    6: { label: _t("quality.great"), cls: "great" },
   };
 
   results.forEach((bt) => {
@@ -279,15 +282,16 @@ shareBtn.addEventListener("click", () => {
       `${bt.recommended ? "* " : "  "}${formatTime(bt.hour12, bt.minute, bt.ampm)} (${bt.cycles} cycles, ${bt.totalHours}h)`
   );
 
-  const text = `${lastResults.headerText}\n${lines.join("\n")}\n\nCalculated with Sleep Cycle Optimizer`;
+  const _t = window.I18n ? window.I18n.t : (k) => k;
+  const text = `${lastResults.headerText}\n${lines.join("\n")}\n\n${_t("share.calculated")}`;
 
   if (navigator.share) {
     navigator.share({ title: "Sleep Cycle Results", text }).catch(() => {});
   } else if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(() => {
-      shareBtn.textContent = "Copied!";
+      shareBtn.textContent = _t("results.copied");
       setTimeout(() => {
-        shareBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share Results`;
+        shareBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> <span data-i18n="results.share">${_t("results.share")}</span>`;
       }, 2000);
     });
   }
@@ -301,6 +305,7 @@ recalcBtn.addEventListener("click", () => {
 
 // --- Main Calculate Handler ---
 calcBtn.addEventListener("click", () => {
+  const _t = window.I18n ? window.I18n.t : (k) => k;
   if (currentMode === "sleepnow") {
     const now = new Date();
     const { hour, ampm } = to12(now.getHours());
@@ -309,8 +314,8 @@ calcBtn.addEventListener("click", () => {
 
     renderResults(
       results,
-      "Your Optimal Wake Times",
-      `If you go to sleep now (<strong>${nowStr}</strong>), set your alarm for:`
+      _t("results.heading.sleepnow"),
+      _t("results.info.sleepnow", { time: nowStr })
     );
 
     sendToGoogleSheets({ mode: "sleepnow", sleepTime: nowStr });
@@ -326,8 +331,8 @@ calcBtn.addEventListener("click", () => {
 
     renderResults(
       results,
-      "Your Optimal Bedtimes",
-      `To wake up at <strong>${wakeTimeStr}</strong>, go to sleep at one of these times:`
+      _t("results.heading.bedtime"),
+      _t("results.info.bedtime", { time: wakeTimeStr })
     );
 
     sendToGoogleSheets({ mode: "bedtime", wakeTime: wakeTimeStr });
