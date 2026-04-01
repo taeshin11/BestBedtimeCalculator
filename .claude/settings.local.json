@@ -3,7 +3,14 @@
     "allow": [
       "Bash(npx vercel:*)",
       "Bash(npm list:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:best-bedtime-calculator.vercel.app)",
+      "Bash(gh api:*)",
+      "Bash(node -e \":*)"
     ]
   }
 }
